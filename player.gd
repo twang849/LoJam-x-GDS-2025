@@ -1,7 +1,10 @@
 extends CharacterBody3D
 
-@onready var _camera := $CameraPivot/SpringArm3D/Camera3D as Camera3D
+@onready var _camera := $CameraPivot/Camera3D as Camera3D
 @onready var _camera_pivot := $CameraPivot as Node3D
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 @export_range(0.0, 1.0) var mouse_sensitivity = 0.01
 @export var tilt_limit = deg_to_rad(75) 
@@ -29,7 +32,6 @@ func _physics_process(delta):
 		
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
-		$CameraPivot.basis = Basis.looking_at(direction)
 	
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed
@@ -37,7 +39,7 @@ func _physics_process(delta):
 	if !is_on_floor():
 		target_velocity.y = target_velocity.y - (delta * fall_acceleration) 
 		
-	velocity = target_velocity
+	velocity = target_velocity.x * transform.basis.x + target_velocity.z * transform.basis.z
 	move_and_slide()
 	
 func _unhandled_input(event: InputEvent) -> void:
