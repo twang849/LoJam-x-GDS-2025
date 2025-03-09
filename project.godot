@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="LoJam x GDS 2025"
+run/main_scene="uid://3fe6k5pvlq31"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
