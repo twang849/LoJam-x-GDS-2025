@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://3fe6k5pvlq31"]
+[gd_scene load_steps=5 format=3 uid="uid://3fe6k5pvlq31"]
 
 [ext_resource type="PackedScene" uid="uid://baue3qvhxljx0" path="res://player.tscn" id="1_u52ul"]
+[ext_resource type="PackedScene" uid="uid://bs7nxqwd3pcmv" path="res://wall.tscn" id="1_vonw3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5xgho"]
 size = Vector3(60, 2, 60)
@@ -20,7 +21,19 @@ shape = SubResource("BoxShape3D_5xgho")
 mesh = SubResource("BoxMesh_u52ul")
 skeleton = NodePath("../CollisionShape3D")
 
+[node name="Wall" parent="." instance=ExtResource("1_vonw3")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 20, -29)
+
+[node name="Wall" parent="Wall" instance=ExtResource("1_vonw3")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 58, -3.8147e-06)
+
+[node name="Wall" parent="Wall/Wall" instance=ExtResource("1_vonw3")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 4.37114e-08, -4.37114e-08, 4.37114e-08, 1, 29, -29, 1.90735e-06)
+
+[node name="Wall" parent="Wall/Wall/Wall" instance=ExtResource("1_vonw3")]
+transform = Transform3D(1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -1, 8.74228e-08, 4.37114e-08, -8.74228e-08, -1, 2.53526e-06, 58, -3.8147e-06)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 16, 0)
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 31, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_u52ul")]
