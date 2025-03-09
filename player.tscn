@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://baue3qvhxljx0"]
+[gd_scene load_steps=4 format=3 uid="uid://baue3qvhxljx0"]
 
 [ext_resource type="Script" uid="uid://bheptmflg88lo" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://cns6nf1mnsqyo" path="res://Scripts/PlayerInteract.gd" id="2_onrkg"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_onrkg"]
 
@@ -17,3 +18,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.241243, 0)
+
+[node name="InteractionRayCast" type="RayCast3D" parent="CameraPivot/Camera3D"]
+target_position = Vector3(0, 0, -3)
+script = ExtResource("2_onrkg")
+
+[node name="RayCastEnd" type="Node3D" parent="CameraPivot/Camera3D/InteractionRayCast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
