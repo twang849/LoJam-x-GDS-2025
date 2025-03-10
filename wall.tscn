@@ -1,17 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs7nxqwd3pcmv"]
+[gd_scene load_steps=5 format=3 uid="uid://bs7nxqwd3pcmv"]
+
+[ext_resource type="Texture2D" uid="uid://dv61pqnno6byg" path="res://Materials/512/CodezlyBasicTexturePack1(free)_512_7.png" id="1_xxgf6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5xgho"]
 size = Vector3(60, 2, 40)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4f30"]
+albedo_texture = ExtResource("1_xxgf6")
+uv1_scale = Vector3(7.145, 7.145, 7.145)
+
 [sub_resource type="BoxMesh" id="BoxMesh_u52ul"]
+material = SubResource("StandardMaterial3D_y4f30")
 size = Vector3(60, 2, 40)
 
 [node name="Wall" type="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_5xgho")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("BoxMesh_u52ul")
 skeleton = NodePath("../CollisionShape3D")
