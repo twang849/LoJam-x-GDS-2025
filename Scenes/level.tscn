@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://3fe6k5pvlq31"]
 
 [ext_resource type="Texture2D" uid="uid://dta3h0y8ygbeg" path="res://Materials/512/CodezlyBasicTexturePack1(free)_512_3.png" id="1_oi3di"]
-[ext_resource type="PackedScene" uid="uid://baue3qvhxljx0" path="res://player.tscn" id="1_u52ul"]
-[ext_resource type="PackedScene" uid="uid://bs7nxqwd3pcmv" path="res://wall.tscn" id="1_vonw3"]
+[ext_resource type="PackedScene" uid="uid://baue3qvhxljx0" path="res://Scenes/player.tscn" id="1_u52ul"]
+[ext_resource type="PackedScene" uid="uid://bs7nxqwd3pcmv" path="res://Scenes/wall.tscn" id="1_vonw3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5xgho"]
 size = Vector3(60, 2, 60)
