@@ -38,8 +38,6 @@ func _process(_delta):
 	else:
 		rayPos = rayCastEnd.global_position
 	
-	
-		
 func ChangeSelected(new):
 	var old = selectedObject
 	selectedObject = new
