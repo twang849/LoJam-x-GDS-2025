@@ -44,6 +44,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -29.84
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 28.1589, 20, 0.658676)
 
 [node name="Player" parent="." instance=ExtResource("1_u52ul")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.83156, 0, 1.41126)
 mouse_sensitivity = 0.01
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
@@ -54,4 +55,4 @@ light_specular = 2.924
 spot_range = 115.576
 spot_angle = 68.2284
 
-[node name="RigidBody3D" parent="." instance=ExtResource("4_81xng")]
+[node name="Box" parent="." instance=ExtResource("4_81xng")]

@@ -13,11 +13,11 @@ func _unhandled_input(event):
 	# Check if the player interacts
 	if Input.is_action_just_pressed("interact") and selectedObject != null:
 		if selectedObject.has_method("interact") and is_colliding():
-			selectedObject.Interact()
+			selectedObject.interact()
 			return
 		# This is to drop held items
 		if heldObject:
-			selectedObject.Interact()
+			selectedObject.interact()
 			return
 
 
@@ -40,6 +40,7 @@ func _process(_delta):
 	
 func ChangeSelected(new):
 	var old = selectedObject
+	
 	selectedObject = new
 	print(selectedObject)
 	#emit_signal("selectedChange", old, new)

@@ -40,6 +40,8 @@ func _physics_process(delta):
 		var collision_body = collision.get_collider()
 		if collision and collision_body is RigidBody3D:
 			collision_body.apply_force(velocity)
+			#print("Applying force.")
+			#print(Time.get_ticks_msec())
 			
 		
 	move_and_slide()
