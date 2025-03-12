@@ -19,9 +19,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta):
-	
-		
-	
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		var cam_yaw = _camera_pivot.rotation.y
@@ -37,6 +34,14 @@ func _physics_process(delta):
 		target_velocity.y -= delta * fall_acceleration
 		
 	velocity = target_velocity
+	
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collision_body = collision.get_collider()
+		if collision and collision_body is RigidBody3D:
+			collision_body.apply_force(velocity)
+			
+		
 	move_and_slide()
 	
 func _unhandled_input(event: InputEvent) -> void:
